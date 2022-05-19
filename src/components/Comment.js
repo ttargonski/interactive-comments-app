@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import Avatar from "../images/avatars/image-amyrobson.png";
-import IconReply from "../images/icon-reply.svg";
-import CurrentUserAvatar from "../images/avatars/image-juliusomo.png";
 
-const Comment = () => {
+const Comment = ({ comment }) => {
   const [replyState, setReplyState] = useState(false);
 
   return (
@@ -11,37 +8,36 @@ const Comment = () => {
       <div className="comment">
         <div className="comment-score">
           <button>+</button>
-          <p>12</p>
+          <p>{comment.score}</p>
           <button>-</button>
         </div>
         <div className="comment-content">
           <div className="comment-header">
             <div>
               <div className="comment-user">
-                <img className="comment-user-image" src={Avatar} />
-                <p className="comment-user-name">amyrobson</p>
-                <p className="comment-user-time">1 month ago</p>
+                <img
+                  className="comment-user-image"
+                  src={comment.user.image.png}
+                />
+                <p className="comment-user-name">{comment.user.username}</p>
+                <p className="comment-user-time">{comment.createdAt}</p>
               </div>
             </div>
             <button
               className="comment-btn-reply"
               onClick={() => setReplyState(!replyState)}
             >
-              <img src={IconReply} /> Reply
+              <img src={"/assets/images/icon-reply.svg"} /> Reply
             </button>
           </div>
-          <div className="comment-body">
-            Impressive! Though it seems the drag feature could be improved. But
-            overall it looks incredible. You've nailed the design and the
-            responsiveness at various breakpoints works really well.
-          </div>
+          <div className="comment-body">{comment.content}</div>
         </div>
       </div>
 
       {/* REPLY - nowy komponent? */}
       {replyState && (
         <div className="comment reply">
-          <img className="comment-user-image" src={CurrentUserAvatar} />
+          <img className="comment-user-image" src="" />
 
           <div className="reply-content">
             <textarea></textarea>
@@ -51,7 +47,6 @@ const Comment = () => {
       )}
 
       {/* odpowiedzi .. lista */}
-      <div className="replies">Comment Reply List</div>
     </div>
   );
 };
