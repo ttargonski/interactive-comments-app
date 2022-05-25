@@ -29,8 +29,13 @@ body {
   background-color: var(--white);
   border-radius: 10px;
   display: flex;
-  margin: 10px;
+  flex-direction: row;
+  margin: 20px 10px 10px 10px;
   padding: 25px;
+}
+
+.reply {
+  margin: 10px;
 }
 
 .comment-score {
@@ -75,6 +80,10 @@ body {
   border: none;
   font-weight: 500;
   cursor: pointer;
+}
+
+.comment-btn-reply img {
+  margin-right: 5px;
 }
 
 .comment-btn-reply:hover {
@@ -143,4 +152,10 @@ body {
 .reply-content {
   width: 100%;
   display: flex;
+}
+
+.replies {
+  border-left: solid 2px var(--light-gray);
+  margin-left: 50px;
+  padding-left: 30px;
 }

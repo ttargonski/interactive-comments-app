@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Reply from "./Reply";
-import CommentReply from "./CommentReply";
 
-function Comment({ comment, currentUser }) {
+function CommentReply({ comment, currentUser }) {
   const [replyState, setReplyState] = useState(false);
+
   return (
     <div>
       <div className="comment">
@@ -38,19 +38,8 @@ function Comment({ comment, currentUser }) {
 
       {/* REPLY */}
       {replyState && <Reply currentUser={currentUser} />}
-
-      {/* REPLIES LIST */}
-      <div className="replies">
-        {comment.replies.map((rcomment) => (
-          <CommentReply
-            key={rcomment.id}
-            comment={rcomment}
-            currentUser={currentUser}
-          />
-        ))}
-      </div>
     </div>
   );
 }
 
-export default Comment;
+export default CommentReply;

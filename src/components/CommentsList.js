@@ -4,7 +4,7 @@ import Comment from "./Comment";
 import { useState, useEffect } from "react";
 import fetchActions from "../api/fetchActions";
 
-const CommentList = () => {
+const CommentsList = ({ currentUser }) => {
   const [comments, setComments] = useState([]);
 
   // Fetch comments from server
@@ -22,10 +22,10 @@ const CommentList = () => {
   return (
     <div className="container">
       {comments.map((comment) => (
-        <Comment key={comment.id} comment={comment} />
+        <Comment key={comment.id} comment={comment} currentUser={currentUser} />
       ))}
     </div>
   );
 };
 
-export default CommentList;
+export default CommentsList;

@@ -1,14 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import "./App.css";
-import CommentList from "./components/CommentList";
+import CommentsList from "./components/CommentsList";
+import fetchActions from "./api/fetchActions";
 
 function App() {
   const [currentUser, setCurrentUser] = useState({});
 
+  useEffect(() => {
+    const fetch = new fetchActions();
+
+    const getUser = async () => {
+      const userFromServer = await fetch.fetchCurrentUser();
+      setCurrentUser(userFromServer);
+    };
+
+    getUser();
+  }, []);
+
   return (
     <div className="App">
-      <CommentList />
+      <CommentsList currentUser={currentUser} />
     </div>
   );
 }
