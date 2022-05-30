@@ -1,9 +1,30 @@
 import React, { useState } from "react";
 import Reply from "./Reply";
 import CommentReply from "./CommentReply";
+import fetchActions from "../api/fetchActions";
 
 function Comment({ comment, currentUser }) {
   const [replyState, setReplyState] = useState(false);
+  const [replies, setReplies] = useState(comment.replies);
+  const fetch = new fetchActions();
+
+  const addReply = async (newReply) => {
+    // get from server
+    const commentToUpdate = await fetch.fetchComment(comment.id);
+
+    const updateComment = {
+      ...commentToUpdate,
+      replies: [...replies, newReply],
+    };
+
+    // update to server
+    await fetch.updateComment(updateComment, comment.id);
+
+    // update to state
+    setReplies([...replies, newReply]);
+    setReplyState(false);
+  };
+
   return (
     <div>
       <div className="comment">
@@ -37,14 +58,14 @@ function Comment({ comment, currentUser }) {
       </div>
 
       {/* REPLY */}
-      {replyState && <Reply currentUser={currentUser} />}
+      {replyState && <Reply currentUser={currentUser} addReply={addReply} />}
 
       {/* REPLIES LIST */}
       <div className="replies">
-        {comment.replies.map((rcomment) => (
+        {replies.map((reply) => (
           <CommentReply
-            key={rcomment.id}
-            comment={rcomment}
+            key={reply.id}
+            comment={reply}
             currentUser={currentUser}
           />
         ))}

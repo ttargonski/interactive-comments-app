@@ -5,13 +5,15 @@ import CommentsList from "./components/CommentsList";
 import fetchActions from "./api/fetchActions";
 
 function App() {
-  const [currentUser, setCurrentUser] = useState({});
+  const [currentUser, setCurrentUser] = useState();
 
+  // get current user from server
   useEffect(() => {
     const fetch = new fetchActions();
 
     const getUser = async () => {
       const userFromServer = await fetch.fetchCurrentUser();
+      // update state
       setCurrentUser(userFromServer);
     };
 
@@ -20,7 +22,9 @@ function App() {
 
   return (
     <div className="App">
-      <CommentsList currentUser={currentUser} />
+      <div className="container">
+        <CommentsList currentUser={currentUser} />
+      </div>
     </div>
   );
 }

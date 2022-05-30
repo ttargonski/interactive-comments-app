@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-const Reply = ({ currentUser, addReply }) => {
+const AddComment = ({ currentUser, addComment }) => {
   // current date
   const getDate = () => {
     const today = new Date();
@@ -14,7 +14,7 @@ const Reply = ({ currentUser, addReply }) => {
     return date;
   };
 
-  const [newReply, setNewReply] = useState({
+  const [newComment, setNewComment] = useState({
     id: uuidv4(),
     content: "",
     createdAt: getDate(),
@@ -30,35 +30,34 @@ const Reply = ({ currentUser, addReply }) => {
   });
 
   const onAdd = () => {
-    addReply(newReply);
+    addComment(newComment);
 
-    setNewReply({
-      ...newReply,
+    setNewComment({
+      ...newComment,
       id: uuidv4(),
       content: "",
       createdAt: getDate(),
     });
   };
 
-  // REPLY COMPONENT JAK ADD COMPONENT - 1. ADD TO SERVER 2. ADD TO STATE.
-
   return (
     <div className="comment create">
-      <img className="comment-user-image" src={currentUser.image.png} />
+      <img className="comment-user-image" src={newComment.user.image.png} />
 
       <div className="create-content">
         <textarea
+          placeholder="Add a comment..."
           onChange={(e) =>
-            setNewReply({ ...newReply, content: e.target.value })
+            setNewComment({ ...newComment, content: e.target.value })
           }
-          value={newReply.content}
+          value={newComment.content}
         ></textarea>
         <button className="create-comment-btn" onClick={() => onAdd()}>
-          reply
+          send
         </button>
       </div>
     </div>
   );
 };
 
-export default Reply;
+export default AddComment;

@@ -119,12 +119,12 @@ body {
   line-height: 1.5rem;
 }
 
-.reply {
+.create {
   display: flex;
   flex-direction: row;
 }
 
-.reply-btn {
+.create-comment-btn {
   background-color: var(--moderateBlue);
   border: none;
   border-radius: 10px;
@@ -137,11 +137,11 @@ body {
   cursor: pointer;
 }
 
-.reply-btn:hover {
+.create-comment-btn:hover {
   background-color: var(--lightGrayishBlue);
 }
 
-.reply textarea {
+.create textarea {
   width: 90%;
   border-radius: 10px;
   resize: none;
@@ -149,13 +149,13 @@ body {
   padding: 15px;
 }
 
-.reply-content {
+.create-content {
   width: 100%;
   display: flex;
 }
 
 .replies {
-  border-left: solid 2px var(--light-gray);
+  border-left: solid 3px var(--light-gray);
   margin-left: 50px;
   padding-left: 30px;
 }

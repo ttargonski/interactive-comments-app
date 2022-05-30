@@ -61,6 +61,77 @@
             },
             "username": "juliusomo"
           }
+        },
+        {
+          "id": "e2c11a4e-de18-4408-a0be-23f636a3f94d",
+          "content": "hahahha :)",
+          "createdAt": "30/5/2022",
+          "score": 0,
+          "user": {
+            "image": {
+              "png": "/assets/images/avatars/image-juliusomo.png",
+              "webp": "/assets/images/avatars/image-juliusomo.webp"
+            },
+            "username": "juliusomo"
+          },
+          "replies": []
+        }
+      ]
+    },
+    {
+      "id": "ce1ffdad-0883-46ed-9264-4cfb90175ddd",
+      "content": "15nowy",
+      "createdAt": "30/5/2022",
+      "score": 0,
+      "user": {
+        "image": {
+          "png": "/assets/images/avatars/image-juliusomo.png",
+          "webp": "/assets/images/avatars/image-juliusomo.webp"
+        },
+        "username": "juliusomo"
+      },
+      "replies": [
+        {
+          "id": "7b55e586-a80e-4fe9-90f2-c30a127fd551",
+          "content": "10",
+          "createdAt": "30/5/2022",
+          "score": 0,
+          "user": {
+            "image": {
+              "png": "/assets/images/avatars/image-juliusomo.png",
+              "webp": "/assets/images/avatars/image-juliusomo.webp"
+            },
+            "username": "juliusomo"
+          },
+          "replies": []
+        },
+        {
+          "id": "cc3d3dc6-b9f3-450d-97d5-0bc64c943529",
+          "content": "15",
+          "createdAt": "30/5/2022",
+          "score": 0,
+          "user": {
+            "image": {
+              "png": "/assets/images/avatars/image-juliusomo.png",
+              "webp": "/assets/images/avatars/image-juliusomo.webp"
+            },
+            "username": "juliusomo"
+          },
+          "replies": []
+        },
+        {
+          "id": "3ec84ac6-bf46-4a8b-8578-0e326fe68e73",
+          "content": "kaka\nasdasdasdsa",
+          "createdAt": "30/5/2022",
+          "score": 0,
+          "user": {
+            "image": {
+              "png": "/assets/images/avatars/image-juliusomo.png",
+              "webp": "/assets/images/avatars/image-juliusomo.webp"
+            },
+            "username": "juliusomo"
+          },
+          "replies": []
         }
       ]
     }
