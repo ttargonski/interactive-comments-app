@@ -30,14 +30,16 @@ const AddComment = ({ currentUser, addComment }) => {
   });
 
   const onAdd = () => {
-    addComment(newComment);
+    if (newComment.content !== "") {
+      addComment(newComment);
 
-    setNewComment({
-      ...newComment,
-      id: uuidv4(),
-      content: "",
-      createdAt: getDate(),
-    });
+      setNewComment({
+        ...newComment,
+        id: uuidv4(),
+        content: "",
+        createdAt: getDate(),
+      });
+    }
   };
 
   return (

@@ -30,17 +30,17 @@ const Reply = ({ currentUser, addReply }) => {
   });
 
   const onAdd = () => {
-    addReply(newReply);
+    if (newReply.content !== "") {
+      addReply(newReply);
 
-    setNewReply({
-      ...newReply,
-      id: uuidv4(),
-      content: "",
-      createdAt: getDate(),
-    });
+      setNewReply({
+        ...newReply,
+        id: uuidv4(),
+        content: "",
+        createdAt: getDate(),
+      });
+    }
   };
-
-  // REPLY COMPONENT JAK ADD COMPONENT - 1. ADD TO SERVER 2. ADD TO STATE.
 
   return (
     <div className="comment create">

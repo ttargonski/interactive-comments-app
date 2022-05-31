@@ -74,7 +74,7 @@ body {
   margin-bottom: 15px;
 }
 
-.comment-btn-reply {
+.comment-btn {
   color: var(--moderateBlue);
   background-color: transparent;
   border: none;
@@ -82,11 +82,16 @@ body {
   cursor: pointer;
 }
 
-.comment-btn-reply img {
+.comment-btn.delete {
+  color: var(--softRed);
   margin-right: 5px;
 }
 
-.comment-btn-reply:hover {
+.comment-btn img {
+  margin-right: 10px;
+}
+
+.comment-btn:hover {
   opacity: 0.6;
 }
 

@@ -1,9 +1,6 @@
-import React, { useState } from "react";
-import Reply from "./Reply";
+import React from "react";
 
 function CommentReply({ comment, currentUser }) {
-  const [replyState, setReplyState] = useState(false);
-
   return (
     <div>
       <div className="comment">
@@ -24,20 +21,22 @@ function CommentReply({ comment, currentUser }) {
                 <p className="comment-user-time">{comment.createdAt}</p>
               </div>
             </div>
-            <button
-              className="comment-btn-reply"
-              onClick={() => setReplyState(!replyState)}
-            >
-              <img src={"/assets/images/icon-reply.svg"} />
-              Reply
-            </button>
+            {comment.user.username === currentUser.username ? (
+              <div>
+                <button className="comment-btn delete">
+                  <img src={"/assets/images/icon-delete.svg"} />
+                  Delete
+                </button>
+                <button className="comment-btn">
+                  <img src={"/assets/images/icon-edit.svg"} />
+                  Edit
+                </button>
+              </div>
+            ) : null}
           </div>
           <div className="comment-body">{comment.content}</div>
         </div>
       </div>
-
-      {/* REPLY */}
-      {replyState && <Reply currentUser={currentUser} />}
     </div>
   );
 }
