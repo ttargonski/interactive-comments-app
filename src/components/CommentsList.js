@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Comment from "./Comment";
 import AddComment from "./AddComment";
-
-import { useState, useEffect } from "react";
 import fetchActions from "../api/fetchActions";
 
 const CommentsList = () => {
   const [comments, setComments] = useState([]);
   const [currentUser, setCurrentUser] = useState();
+
   const fetch = new fetchActions();
 
+  // GET FROM SERVER
   useEffect(() => {
     // get comments from server
     const getComments = async () => {
@@ -31,8 +31,10 @@ const CommentsList = () => {
 
   // ADD COMMENT
   const addComment = async (newComment) => {
+    // update to server
     await fetch.addComment(newComment);
-    // update state
+
+    // update to state
     setComments([...comments, newComment]);
   };
 
@@ -55,6 +57,37 @@ const CommentsList = () => {
     }
   };
 
+  // DELETE COMMENT
+  const deleteComment = async (id) => {
+    console.log("comment was deleted", id);
+
+    // delete to server
+    fetch.deleteComment(id);
+
+    // delete to state
+    setComments(comments.filter((comment) => comment.id !== id));
+  };
+
+  // UPDATE COMMENT SCORE
+  const updateScore = async (id, action) => {
+    const commentToUpdate = await fetch.fetchComment(id);
+
+    if (action === "add") {
+      // update to server
+      commentToUpdate.score++;
+    }
+    if (action === "remove") {
+      // update to server
+      commentToUpdate.score--;
+    }
+    await fetch.updateComment(commentToUpdate, id);
+
+    // update state server
+    setComments(
+      comments.map((comment) => (comment.id === id ? commentToUpdate : comment))
+    );
+  };
+
   return (
     <>
       {comments.map((comment) => (
@@ -63,6 +96,8 @@ const CommentsList = () => {
           comment={comment}
           currentUser={currentUser}
           editComment={editComment}
+          deleteComment={deleteComment}
+          updateScore={updateScore}
         />
       ))}
       {currentUser && (

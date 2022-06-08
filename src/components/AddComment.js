@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-const AddComment = ({ currentUser, addComment }) => {
+const AddComment = ({ currentUser, addComment, button }) => {
   // current date
   const getDate = () => {
     const today = new Date();
@@ -55,7 +55,7 @@ const AddComment = ({ currentUser, addComment }) => {
           value={newComment.content}
         ></textarea>
         <button className="create-comment-btn" onClick={() => onAdd()}>
-          send
+          {button === "reply" ? "reply" : "send"}
         </button>
       </div>
     </div>

@@ -47,6 +47,13 @@ class fetchActions {
     const data = await response.json();
     return data;
   };
+
+  // delete comment
+  deleteComment = async (id) => {
+    await fetch(url + `comments/${id}`, {
+      method: "DELETE",
+    });
+  };
 }
 
 export default fetchActions;
