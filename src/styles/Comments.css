@@ -1,25 +1,3 @@
-:root {
-  /* Primary */
-  --moderateBlue: hsl(238, 40%, 52%);
-  --softRed: hsl(358, 79%, 66%);
-  --lightGrayishBlue: hsl(239, 57%, 85%);
-  --paleRed: hsl(357, 100%, 86%);
-  /* Neutral */
-  --darkBlue: hsl(212, 24%, 26%);
-  --grayish_Blue: hsl(211, 10%, 45%);
-  --light-gray: hsl(223, 19%, 93%);
-  --veryLightGray: hsl(228, 33%, 97%);
-  --white: hsl(0, 0%, 100%);
-}
-
-body {
-  background-color: var(--veryLightGray);
-}
-
-.App {
-  width: 100%;
-}
-
 .container {
   max-width: 1440px;
   margin: auto;
@@ -207,4 +185,103 @@ body {
   margin-left: 10px;
   padding: 4px 8px;
   border-radius: 5px;
+}
+
+.comment-actions button {
+  height: 100%;
+}
+
+@media only screen and (max-width: 620px) {
+  .comment {
+    flex-direction: column-reverse;
+    position: relative;
+    padding: 15px;
+  }
+
+  .comment-content {
+    padding-left: 0;
+  }
+  .comment-score {
+    width: max-content;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    padding: 0;
+  }
+
+  .comment-score button {
+    margin: 0 15px;
+  }
+
+  .comment-actions {
+    margin: 0 15px;
+    position: absolute;
+    bottom: 30px;
+    right: 0;
+  }
+  .replies {
+    margin-left: 20px;
+    padding-left: 10px;
+  }
+
+  .create-content textarea {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .create-comment-btn {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  body,
+  textarea,
+  button {
+    font-size: 12px;
+  }
+
+  .comment {
+    margin-top: 10px;
+    padding: 10px;
+  }
+
+  .comment-user-image {
+    height: 35px;
+    width: 35px;
+  }
+
+  .comment-header {
+    height: 35px;
+  }
+
+  .comment-score button {
+    font-size: 12px;
+    margin: 0 8px;
+  }
+
+  .comment-body {
+    line-height: 1.2rem;
+  }
+
+  .replies {
+    margin-left: 10px;
+    padding: 0px;
+  }
+
+  .comment-actions {
+    bottom: 20px;
+  }
+
+  .create-comment-btn {
+    right: 10px;
+    bottom: 10px;
+    padding: 10px 10px;
+  }
+
+  .delete-modal {
+    transform: scale(0.85);
+  }
 }

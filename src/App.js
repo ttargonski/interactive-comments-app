@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./App.css";
+import "./styles/App.css";
 import CommentsList from "./components/CommentsList";
 
 function App() {

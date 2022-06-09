@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Comment from "./Comment";
 import AddComment from "./AddComment";
 import fetchActions from "../api/fetchActions";
+import "../styles/Comments.css";
 
 const CommentsList = () => {
   const [comments, setComments] = useState([]);

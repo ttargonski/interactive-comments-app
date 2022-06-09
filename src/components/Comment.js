@@ -3,6 +3,7 @@ import CommentReply from "./CommentReply";
 import fetchActions from "../api/fetchActions";
 import DeleteComment from "./DeleteComment";
 import AddComment from "./AddComment";
+import EditComment from "./EditComment";
 
 function Comment({
   comment,
@@ -14,7 +15,7 @@ function Comment({
   const [replyState, setReplyState] = useState(false);
   const [editState, setEditState] = useState(false);
   const [replies, setReplies] = useState(comment.replies);
-  const [updateContent, setUpdateContent] = useState();
+
   const [modalIsOpen, setIsOpen] = useState(false);
 
   const fetch = new fetchActions();
@@ -37,7 +38,7 @@ function Comment({
     setReplyState(false);
   };
 
-  const onEdit = () => {
+  const onEdit = (updateContent) => {
     editComment(updateContent, comment.id);
     setEditState(false);
   };
@@ -141,7 +142,7 @@ function Comment({
             </div>
             {/* SHOW  EDIT & DELETE OR REPLY ACTIONS */}
             {comment.user.username === currentUser.username ? (
-              <div>
+              <div className="comment-actions">
                 <button
                   className="comment-btn delete"
                   onClick={() => setIsOpen(!modalIsOpen)}
@@ -158,25 +159,19 @@ function Comment({
                 </button>
               </div>
             ) : (
-              <button
-                className="comment-btn"
-                onClick={() => setReplyState(!replyState)}
-              >
-                <img src={"/assets/images/icon-reply.svg"} />
-                Reply
-              </button>
+              <div className="comment-actions">
+                <button
+                  className="comment-btn"
+                  onClick={() => setReplyState(!replyState)}
+                >
+                  <img src={"/assets/images/icon-reply.svg"} />
+                  Reply
+                </button>
+              </div>
             )}
           </div>
           {editState ? (
-            <div className="create">
-              <textarea
-                defaultValue={comment.content}
-                onChange={(e) => setUpdateContent(e.target.value)}
-              ></textarea>
-              <button className="create-comment-btn" onClick={() => onEdit()}>
-                update
-              </button>
-            </div>
+            <EditComment content={comment.content} onEdit={onEdit} />
           ) : (
             <div className="comment-body">{comment.content}</div>
           )}

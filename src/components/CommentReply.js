@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import DeleteComment from "./DeleteComment";
+import EditComment from "./EditComment";
 
 function CommentReply({
   comment,
@@ -10,9 +11,8 @@ function CommentReply({
 }) {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [editState, setEditState] = useState(false);
-  const [updateContent, setUpdateContent] = useState();
 
-  const onEdit = () => {
+  const onEdit = (updateContent) => {
     editReply(updateContent, comment.id);
     setEditState(!editState);
   };
@@ -47,7 +47,7 @@ function CommentReply({
               </div>
             </div>
             {comment.user.username === currentUser.username ? (
-              <div>
+              <div className="comment-actions">
                 <button
                   className="comment-btn delete"
                   onClick={() => setIsOpen(!modalIsOpen)}
@@ -66,15 +66,7 @@ function CommentReply({
             ) : null}
           </div>
           {editState ? (
-            <div className="create">
-              <textarea
-                defaultValue={comment.content}
-                onChange={(e) => setUpdateContent(e.target.value)}
-              ></textarea>
-              <button className="create-comment-btn" onClick={() => onEdit()}>
-                update
-              </button>
-            </div>
+            <EditComment content={comment.content} onEdit={onEdit} />
           ) : (
             <div className="comment-body">{comment.content}</div>
           )}
