@@ -38,7 +38,7 @@
           "id": 3,
           "content": "@maxblagun If you're still new. I'd recommend focusing on the fundamentals of HTML, CSS and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.",
           "createdAt": "03/06/2022",
-          "score": 5,
+          "score": 4,
           "user": {
             "image": {
               "png": "/assets/images/avatars/image-ramsesmiron.png",
@@ -49,10 +49,10 @@
           "replies": []
         },
         {
-          "id": "1eee2591-581c-444a-b251-63f6cfd0c380",
-          "content": "reply",
-          "createdAt": "8/6/2022",
-          "score": 0,
+          "id": "f93bba05-13bb-456b-aec4-773c125dfb1b",
+          "content": "@remsesmiron I couldn't agree more with this. Everything moves so fast and it always seems like everyone knows the newest library/ framework. But the fundamentals are what stay constant.",
+          "createdAt": "13/6/2022",
+          "score": 2,
           "user": {
             "image": {
               "png": "/assets/images/avatars/image-juliusomo.png",
@@ -63,20 +63,6 @@
           "replies": []
         }
       ]
-    },
-    {
-      "id": "b26b3414-0775-40c2-a696-4ad026f88c2b",
-      "content": "update2",
-      "createdAt": "8/6/2022",
-      "score": 3,
-      "user": {
-        "image": {
-          "png": "/assets/images/avatars/image-juliusomo.png",
-          "webp": "/assets/images/avatars/image-juliusomo.webp"
-        },
-        "username": "juliusomo"
-      },
-      "replies": []
     }
   ]
 }

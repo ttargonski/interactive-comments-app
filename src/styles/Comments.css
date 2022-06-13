@@ -191,7 +191,9 @@
   height: 100%;
 }
 
-@media only screen and (max-width: 620px) {
+/* MEDIA */
+
+@media only screen and (max-width: 628px) {
   .comment {
     flex-direction: column-reverse;
     position: relative;
@@ -219,6 +221,7 @@
     bottom: 30px;
     right: 0;
   }
+
   .replies {
     margin-left: 20px;
     padding-left: 10px;

@@ -46,7 +46,8 @@ function CommentReply({
                 <p className="comment-user-time">{comment.createdAt}</p>
               </div>
             </div>
-            {comment.user.username === currentUser.username ? (
+            {/* SHOW  EDIT & DELETE OR REPLY ACTIONS */}
+            {comment.user.username === currentUser.username && !editState ? (
               <div className="comment-actions">
                 <button
                   className="comment-btn delete"
@@ -65,6 +66,7 @@ function CommentReply({
               </div>
             ) : null}
           </div>
+          {/* EDIT REPLY */}
           {editState ? (
             <EditComment content={comment.content} onEdit={onEdit} />
           ) : (
@@ -72,6 +74,7 @@ function CommentReply({
           )}
         </div>
       </div>
+      {/* DELETE REPLY */}
       {modalIsOpen && (
         <DeleteComment
           deleteComment={deleteReply}

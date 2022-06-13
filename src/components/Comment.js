@@ -141,7 +141,7 @@ function Comment({
               </div>
             </div>
             {/* SHOW  EDIT & DELETE OR REPLY ACTIONS */}
-            {comment.user.username === currentUser.username ? (
+            {comment.user.username === currentUser.username && !editState ? (
               <div className="comment-actions">
                 <button
                   className="comment-btn delete"
@@ -170,6 +170,7 @@ function Comment({
               </div>
             )}
           </div>
+          {/* EDIT COMMENT */}
           {editState ? (
             <EditComment content={comment.content} onEdit={onEdit} />
           ) : (
