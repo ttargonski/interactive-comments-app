@@ -35,7 +35,7 @@ Users should be able to:
 
 ### Links
 
-- LIVE DEMO URL: [Add live site URL here](https://your-live-site-url.com)
+- LIVE DEMO URL: [INTERACTIVE-COMMENTS-APP]([https://your-live-site-url.com](https://tt-interactive-comments.netlify.app/))
 
 ## My process
 
@@ -58,4 +58,3 @@ In future projects i would like to use redux and css frameworks.
 ## Author
 
 - Website - [ttargonski](https://github.com/ttargonski)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/ttargonski)
