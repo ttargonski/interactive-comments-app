@@ -35,7 +35,7 @@ Users should be able to:
 
 ### Links
 
-- LIVE DEMO URL: [INTERACTIVE-COMMENTS-APP](https://your-live-site-url.com](https://tt-interactive-comments.netlify.app/)
+- LIVE DEMO URL: [INTERACTIVE-COMMENTS-APP](https://tt-interactive-comments.netlify.app/)
 
 ## My process
 
