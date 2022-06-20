@@ -1,5 +1,5 @@
 .container {
-  max-width: 1440px;
+  max-width: 1024px;
   margin: auto;
 }
 
@@ -31,6 +31,7 @@
   border: none;
   background-color: transparent;
   font-size: 24px;
+  text-align: center;
   cursor: pointer;
 }
 
@@ -70,7 +71,7 @@
 }
 
 .comment-btn:hover {
-  opacity: 0.6;
+  opacity: 0.4;
 }
 
 .comment-user {

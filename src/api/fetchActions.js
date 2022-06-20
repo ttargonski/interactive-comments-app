@@ -1,4 +1,5 @@
-const url = "http://localhost:5000/";
+const url = "https://interactive-comments-api-tt.herokuapp.com/api/";
+const username = "juliusomo";
 
 class fetchActions {
   // fetch comments
@@ -17,7 +18,7 @@ class fetchActions {
 
   // fetch user
   fetchCurrentUser = async () => {
-    const response = await fetch(url + "currentUser");
+    const response = await fetch(url + "currentUser/" + username);
     const data = await response.json();
     return data;
   };

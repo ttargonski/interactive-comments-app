@@ -60,8 +60,6 @@ const CommentsList = () => {
 
   // DELETE COMMENT
   const deleteComment = async (id) => {
-    console.log("comment was deleted", id);
-
     // delete to server
     fetch.deleteComment(id);
 
@@ -91,19 +89,21 @@ const CommentsList = () => {
 
   return (
     <>
-      {comments.map((comment) => (
-        <Comment
-          key={comment.id}
-          comment={comment}
-          currentUser={currentUser}
-          editComment={editComment}
-          deleteComment={deleteComment}
-          updateScore={updateScore}
-        />
-      ))}
-      {currentUser && (
-        <AddComment currentUser={currentUser} addComment={addComment} />
-      )}
+      {currentUser ? (
+        <>
+          {comments.map((comment) => (
+            <Comment
+              key={comment.id}
+              comment={comment}
+              currentUser={currentUser}
+              editComment={editComment}
+              deleteComment={deleteComment}
+              updateScore={updateScore}
+            />
+          ))}
+          <AddComment currentUser={currentUser} addComment={addComment} />
+        </>
+      ) : null}
     </>
   );
 };
