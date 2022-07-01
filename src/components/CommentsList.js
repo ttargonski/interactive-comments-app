@@ -5,7 +5,7 @@ import fetchActions from "../api/fetchActions";
 import "../styles/Comments.css";
 
 const CommentsList = () => {
-  const [comments, setComments] = useState([]);
+  const [comments, setComments] = useState();
   const [currentUser, setCurrentUser] = useState();
 
   const fetch = new fetchActions();
@@ -28,7 +28,7 @@ const CommentsList = () => {
 
     getUser();
     getComments();
-  }, []);
+  }, [comments, currentUser]);
 
   // ADD COMMENT
   const addComment = async (newComment) => {
@@ -91,16 +91,21 @@ const CommentsList = () => {
     <>
       {currentUser ? (
         <>
-          {comments.map((comment) => (
-            <Comment
-              key={comment.id}
-              comment={comment}
-              currentUser={currentUser}
-              editComment={editComment}
-              deleteComment={deleteComment}
-              updateScore={updateScore}
-            />
-          ))}
+          {comments ? (
+            comments.map((comment) => (
+              <Comment
+                key={comment.id}
+                comment={comment}
+                currentUser={currentUser}
+                editComment={editComment}
+                deleteComment={deleteComment}
+                updateScore={updateScore}
+              />
+            ))
+          ) : (
+            <p>Loading</p>
+          )}
+
           <AddComment currentUser={currentUser} addComment={addComment} />
         </>
       ) : null}
